@@ -1,0 +1,3 @@
+# Frya - Custom Guilded Bot
+
+Work in progress...

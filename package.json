@@ -1,0 +1,27 @@
+{
+  "name": "frya-bot",
+  "version": "1.0.0",
+  "description": "A custom guilded bot",
+  "main": "dist/index.js",
+  "license": "GPL-3.0-or-later",
+  "repository": "https://github.com/CsiPA0723/frya-bot",
+  "author": {
+    "name": "Péter Csizmadia",
+    "email": "csizipeti0723@gmail.com"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.32",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "mariadb": "^3.0.0",
+    "ws": "^8.6.0"
+  }
+}

@@ -7,7 +7,7 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 class EventHandler {
-  private _events: Collection<string, (...args: any[]) => Promise<void>> = new Collection();
+  private _events: Collection<string, (data: object, ...args: unknown[]) => Promise<void>> = new Collection();
 
   constructor() {
     const path = `${__dirname}/events/`;
@@ -18,8 +18,8 @@ class EventHandler {
         const [name] = f.split(".");
         import(`${dirname(import.meta.url)}/events/${f}`)
           .then((v) => {
-            console.log(`Loading: ${name}`);
             this._events.set(name, v.default);
+            console.log(`Loaded: ${name}`);
           })
           .catch((err) => console.error(err));
       });
@@ -28,10 +28,7 @@ class EventHandler {
 
   public handle({ t: eventType, d: eventData }: WebSocketEvent) {
     if (!eventType || !eventData) return;
-    if (this._events.has(eventType)) {
-      const handler = this._events.get(eventType);
-      if (handler) handler(eventData);
-    }
+    this._events.get(eventType)?.(eventData);
   }
 }
 

@@ -4,12 +4,9 @@
   "description": "A custom guilded bot",
   "main": "dist/index.js",
   "scripts": {
-    "build:ts": "tsc",
-    "watch:ts": "tsc -w",
-    "watch": "npm-run-all --parallel watch:*",
-    "serve": "node -r dotenv/config --trace-warnings dist",
-    "start": "npm-run-all --parallel watch serve",
-    "build": "npm-run-all build:*"
+    "serve": "tsc -w",
+    "start": "nodemon --watch dist -r dotenv/config --trace-warnings dist",
+    "build": "tsc"
   },
   "type": "module",
   "license": "GPL-3.0-or-later",
@@ -26,10 +23,12 @@
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.16",
     "prettier": "^2.6.2",
     "typescript": "^4.6.4"
   },
   "dependencies": {
+    "@discordjs/collection": "^0.6.0",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "mariadb": "^3.0.0",

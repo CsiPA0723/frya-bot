@@ -1,6 +1,6 @@
 import WebSocket from "ws";
 import axios from "axios";
-import EventHandler from "./eventHandler.js";
+import EventHandler from "./EventHandler.js";
 import { WebSocketEvent } from "types/guilded/common";
 
 axios.defaults.baseURL = "https://www.guilded.gg/api/v1";
@@ -20,9 +20,8 @@ socket.on("open", () => {
 });
 
 socket.on("message", async (data) => {
-  console.log(JSON.parse(data.toString()));
-
   const event: WebSocketEvent = JSON.parse(data.toString());
+  console.log(event);
 
   EventHandler.handle(event);
 });

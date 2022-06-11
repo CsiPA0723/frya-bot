@@ -4,6 +4,12 @@ export type uuidString = string;
 export type dateTimeString = string;
 /** String containig markdown */
 export type markdownString = string;
+/** webhook-markdown string */
+export type webhookMarkdownString = string;
+/** uri string */
+export type uriString = string;
+/** media-uri string */
+export type mediaUriString = string;
 
 export type WebSocketEvent = {
   /** An operation code corresponding to the nature of the sent message (for example, success, failure, etc.) */
